@@ -1,7 +1,7 @@
 import { BigNumber } from "ethers";
-import { parseEther } from "ethers/lib/utils";
+import { parseUnits } from "ethers/lib/utils";
+import config from "../config";
 
 export function parseBadToken(value : string) : BigNumber{
-    let amount = parseEther(value);
-    return amount.div(1e12);
+    return parseUnits(value, config.decimals);
 }

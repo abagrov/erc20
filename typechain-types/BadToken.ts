@@ -196,7 +196,7 @@ export interface BadToken extends BaseContract {
 
     burn(
       _account: string,
-      value: BigNumberish,
+      _value: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
@@ -204,7 +204,7 @@ export interface BadToken extends BaseContract {
 
     mint(
       _account: string,
-      value: BigNumberish,
+      _value: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
@@ -249,7 +249,7 @@ export interface BadToken extends BaseContract {
 
   burn(
     _account: string,
-    value: BigNumberish,
+    _value: BigNumberish,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
@@ -257,7 +257,7 @@ export interface BadToken extends BaseContract {
 
   mint(
     _account: string,
-    value: BigNumberish,
+    _value: BigNumberish,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
@@ -302,7 +302,7 @@ export interface BadToken extends BaseContract {
 
     burn(
       _account: string,
-      value: BigNumberish,
+      _value: BigNumberish,
       overrides?: CallOverrides
     ): Promise<boolean>;
 
@@ -310,7 +310,7 @@ export interface BadToken extends BaseContract {
 
     mint(
       _account: string,
-      value: BigNumberish,
+      _value: BigNumberish,
       overrides?: CallOverrides
     ): Promise<boolean>;
 
@@ -377,7 +377,7 @@ export interface BadToken extends BaseContract {
 
     burn(
       _account: string,
-      value: BigNumberish,
+      _value: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
@@ -385,7 +385,7 @@ export interface BadToken extends BaseContract {
 
     mint(
       _account: string,
-      value: BigNumberish,
+      _value: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
@@ -434,7 +434,7 @@ export interface BadToken extends BaseContract {
 
     burn(
       _account: string,
-      value: BigNumberish,
+      _value: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
@@ -442,7 +442,7 @@ export interface BadToken extends BaseContract {
 
     mint(
       _account: string,
-      value: BigNumberish,
+      _value: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 

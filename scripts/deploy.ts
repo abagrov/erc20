@@ -1,14 +1,15 @@
 import _ from "@nomiclabs/hardhat-waffle";
 import { ethers } from "hardhat";
 import * as dotenv from "dotenv";
-
+import conf from "../config"
+import config from "../config";
 async function main() {
   dotenv.config();
 
   const { OWNER_ADDRESS } = process.env;
 
-  const factory = await ethers.getContractFactory("BadToken");
-  const contract = await factory.deploy(OWNER_ADDRESS);
+  const factory = await ethers.getContractFactory(config.contractName);
+  const contract = await factory.deploy(OWNER_ADDRESS, conf.name, conf.symbol, conf.decimals, conf.totalSupply);
 
   await contract.deployed();
 

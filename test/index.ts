@@ -9,14 +9,11 @@ describe("BadToken contract", function () {
   let contract: Contract;
   let owner: SignerWithAddress;
   let addr1: SignerWithAddress;
-  let addr2: SignerWithAddress;
-  let addrs: SignerWithAddress[];
-  const THREE_DAYS = 3 * 24 * 60 * 60;
   const DEFAULT_ADDRESS = "0x0000000000000000000000000000000000000000";
 
   beforeEach(async function () {
     factory = await ethers.getContractFactory("BadToken");
-    [owner, addr1, addr2, ...addrs] = await ethers.getSigners();
+    [owner, addr1] = await ethers.getSigners();
     contract = await factory.deploy(owner.address);
     await contract.mint(owner.address, parseBadToken("1"));
   });

@@ -2,10 +2,10 @@
 pragma solidity ^0.8.0;
 
 contract BadToken {
-    string public name = "BAD Token";
-    string public symbol = "BAD";
-    uint256 public decimals = 6;
-    uint256 public totalSupply = 1e10;
+    string public name;
+    string public symbol;
+    uint256 public decimals;
+    uint256 public totalSupply;
 
     address private contractOwner;
     mapping(address => uint256) private _balances;
@@ -18,8 +18,18 @@ contract BadToken {
         uint256 _value
     );
 
-    constructor(address _contractOwner) {
+    constructor(
+        address _contractOwner,
+        string memory _name,
+        string memory _symbol,
+        uint256 _decimals,
+        uint256 _totalSupply
+    ) {
         contractOwner = _contractOwner;
+        name = _name;
+        symbol = _symbol;
+        decimals = _decimals;
+        totalSupply = _totalSupply;
     }
 
     modifier owner() {
@@ -39,31 +49,33 @@ contract BadToken {
         return true;
     }
 
-    function mint(address _account, uint256 value)
+    function mint(address _account, uint256 _value)
         external
         owner
         returns (bool sucess)
     {
-        _balances[_account] += value;
+        _balances[_account] += _value;
+        totalSupply += _value;
+        emit Transfer(address(0), _account, _value);
 
         return true;
     }
 
-    function burn(address _account, uint256 value)
+    function burn(address _account, uint256 _value)
         external
         owner
         returns (bool sucess)
     {
-        _balances[_account] -= value;
+        _balances[_account] -= _value;
+
+        totalSupply -= _value;
+
+        emit Transfer(_account, address(0), _value);
 
         return true;
     }
 
-    function balanceOf(address _owner)
-        external
-        view
-        returns (uint256 balance)
-    {
+    function balanceOf(address _owner) external view returns (uint256 balance) {
         return _balances[_owner];
     }
 

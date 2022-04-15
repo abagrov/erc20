@@ -8,7 +8,7 @@ import "hardhat-gas-reporter";
 import "solidity-coverage";
 import chai from "chai";
 import { solidity } from "ethereum-waffle";
-import "./tasks/interact";
+import "./tasks/index";
 
 chai.use(solidity);
 dotenv.config();
